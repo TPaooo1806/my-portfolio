@@ -1,13 +1,15 @@
 import Link from "next/link";
 
-interface ProjectCardProps {
+export interface ProjectCardProps {
   title: string;
   description: string;
   stack: string[];
   demoLink?: string;
   githubLink?: string;
   githubFrontend?: string;
+  githubFrontendLabel?: string;
   githubBackend?: string;
+  githubBackendLabel?: string;
 }
 
 export default function ProjectCard({
@@ -17,7 +19,9 @@ export default function ProjectCard({
   demoLink,
   githubLink,
   githubFrontend,
+  githubFrontendLabel,
   githubBackend,
+  githubBackendLabel,
 }: ProjectCardProps) {
   return (
     <div className="group relative rounded-xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/50 hover:bg-white/[0.07]">
@@ -66,7 +70,7 @@ export default function ProjectCard({
               rel="noopener noreferrer"
               className="inline-flex items-center rounded-lg border border-white/20 px-4 py-2 text-sm font-medium text-white transition-all hover:border-blue-500/50 hover:text-blue-400"
             >
-              Frontend
+              {githubFrontendLabel || "Frontend"}
             </Link>
           )}
 
@@ -77,7 +81,7 @@ export default function ProjectCard({
               rel="noopener noreferrer"
               className="inline-flex items-center rounded-lg border border-white/20 px-4 py-2 text-sm font-medium text-white transition-all hover:border-blue-500/50 hover:text-blue-400"
             >
-              Backend
+              {githubBackendLabel || "Backend"}
             </Link>
           )}
 
